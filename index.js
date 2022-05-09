@@ -117,8 +117,7 @@ async function run(){
         else {
           res.send({success: "unauthorized"})
         }
-      // const result = await myCollection.find({}).toArray();
-      // res.send(result);
+      
     })
     }
     finally{
