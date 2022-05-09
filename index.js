@@ -82,9 +82,7 @@ async function run(){
             const updateDoc = {
       $set: {
                     ...newQuantity
-        //   userName: data.userName,
-        //   phone : data.phone
-          //req.body
+        
       },
             };
             const result = await foodCollection.updateOne(filter, updateDoc, options);
