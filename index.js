@@ -14,7 +14,7 @@ app.use(express.json());
 var jwt = require('jsonwebtoken');
 
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion,ObjectId } = require('mongodb');
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.h62pt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
@@ -37,6 +37,7 @@ async function run(){
         console.log(product);
         const token = req.headers.authorization;
         const [email, accessToken] = token.split(" ");
+        console.log(email);
         var decoded = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET);
         if (email === decoded.email) {
             const result = await foodCollection.insertOne(product);
@@ -45,6 +46,8 @@ async function run(){
         else {
           res.send({success: "unauthorized"})
         }
+        // const result = await foodCollection.insertOne(product);
+        //   res.send(result);
         
       })
     
