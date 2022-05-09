@@ -94,7 +94,7 @@ async function run(){
     
     app.post("/myitems", async (req, res) => {
       const info = req.body;
-      // console.log(info);
+      
       const result = await myCollection.insertOne(info);
       res.send({success:"added to my items"});
     })
