@@ -5,8 +5,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 //middleware
-//gopanda
-//U5eK8gxZ5bDTKEjv
+
 
 app.use(cors());
 app.use(express.json());
